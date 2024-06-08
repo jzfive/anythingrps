@@ -3,32 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Change Example</title>
+    <title>BUTTON FOR ROCK PAPER CLICKER</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
         .ready-button {
-            background-color: gray;
+            background-color: green;
             color: white;
             border: none;
-            padding: 15px 32px;
+            padding: 40px 80px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
+            font-size: 36px;
             cursor: pointer;
-            border-radius: 4px;
-            width: 100px;
+            border-radius: 8px;
+        }
+        .not-ready {
+            background-color: red;
+        }
+        .corner-text {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: rgba(128, 128, 128, 0.5); /* Gray color with transparency */
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <button class="ready-button" id="readyButton" onclick="changeButton()">CLICK ME</button>
+    <div class="corner-text">HI FOODY</div>
+    <button class="ready-button" id="toggleButton" onclick="toggleButton()">READY</button>
 
     <script>
-        function changeButton() {
-            var button = document.getElementById("readyButton");
-            button.innerHTML = "READY";
-            button.style.backgroundColor = "green";
+        function toggleButton() {
+            var button = document.getElementById("toggleButton");
+            if (button.innerHTML === "READY") {
+                button.innerHTML = "NOT READY";
+                button.classList.add("not-ready");
+            } else {
+                button.innerHTML = "READY";
+                button.classList.remove("not-ready");
+            }
         }
     </script>
 </body>
